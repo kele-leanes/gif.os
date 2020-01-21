@@ -4,6 +4,10 @@
     line-height: 0;
 }
 
+button:focus {
+    outline: none;
+}
+
 html {
     background-color: #FFF4FD;
 }
@@ -76,7 +80,7 @@ header {
     margin-right: 16.5px;
 }
 
-.dropdown {
+.dropdownMenu {
     width: 170px;
     height: 102px;
     background: #E6E6E6;
@@ -86,6 +90,10 @@ header {
     left: 16px;
     z-index: 999;
     display: none;
+}
+
+.dropdownWrapper.active .dropdownMenu {
+    display: block;
 }
 
 .dropdownBtn img {
@@ -99,7 +107,7 @@ header {
     position: relative;  
 }
 
-.dropdown button {
+.dropdownMenu button {
     width: 150px;
     height: 36px;
     background: #F0F0F0;
