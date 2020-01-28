@@ -158,6 +158,7 @@ header.night {
     text-decoration: none;
     height: 32px;
     width: 95px;
+    border: 1px solid transparent;
 }
 
 .myGif.night {
