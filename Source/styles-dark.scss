@@ -1,0 +1,122 @@
+@use 'styles';
+
+body.dark { 
+    background-color: styles.$background-dark;    
+
+    .top-title {
+        background-image: styles.$dark-gradient;
+        box-shadow: 0 1px 0 0 #110038;
+    }
+
+    .navbar {
+        .buttons-wrapper{
+            .nav-button {
+                color: #FFFFFF;
+                background: #EE3EFE;
+                border: 1px solid #110038;
+                box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                &:hover {
+                    background: #CE36DB;
+                }
+            }
+
+            .dropdown-btn {
+                background: #EE3EFE;
+                border: 1px solid #110038;
+                box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                &:hover {
+                    background: #CE36DB;
+                }
+
+            }
+            
+            .dropdown-menu {
+                background: #B4B4B4;
+                box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+
+                button {
+                    background: #CCCCCC;
+                    border: 1px solid #808080;
+                    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                }
+            }
+            
+            .my-gif {
+                color: #FFFFFF;
+                &::first-letter {
+                    border-bottom: 1px solid #FFFFFF;
+                }
+                &:hover {
+                    border: 1px dotted #FFFFFF;
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        .search-container {
+            background: #B4B4B4;
+            box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+
+            .top-bar {
+                background-image: styles.$dark-gradient;
+            }
+
+            .search-button {
+                background: #B4B4B4;
+                border: 1px solid #808080;
+                box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                color: #8F8F8F;    
+            }
+
+            .results-tab {
+                background: #B4B4B4;
+                box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+                
+                .result-container {
+                    background: #CCCCCC;
+                    border: 1px solid #808080;
+                    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                }
+            }
+
+            
+        }
+
+        .today-container {
+            .title {
+                border: 1px solid #2E32FB;
+                box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
+
+            }
+
+            .gif-grid {
+                .gif-container {
+                    background: #B4B4B4;
+                    box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
+                }        
+                .top-window {
+                    background-image: styles.$dark-gradient;
+                }
+
+                .see-more {
+                    background: #2E32FB;
+                    border: 1px solid #4C2F99;
+                    box-shadow: inset -2px -2px 0 0 #2124B3, inset 2px 2px 0 0 #FFFFFF;
+                }
+            }
+        }
+        .trending-container {
+            .title {
+                border: 1px solid #2E32FB;
+                box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
+    
+            }
+        }
+
+    }
+    
+    
+    
+
+}
