@@ -1,5 +1,5 @@
 /*Variables*/
-body .content-wrapper .search-container .trending-container .title, body .content-wrapper .search-container .today-container .title {
+body .content-wrapper .trending-container .title, body .content-wrapper .today-container .title {
   max-width: 1200px;
   height: 32px;
   font-family: "Chakra Petch", sans-serif;
@@ -13,7 +13,7 @@ body .content-wrapper .search-container .trending-container .title, body .conten
   margin-bottom: 16px;
 }
 
-body .content-wrapper .search-container .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
+body .content-wrapper .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
   position: absolute;
   top: 3px;
   left: 3px;
@@ -144,6 +144,11 @@ body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button {
 body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button::first-letter {
   border-bottom: 1px solid #110038;
 }
+body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button.selected {
+  background: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
 body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu img {
   display: block;
   margin: 14px auto;
@@ -185,13 +190,12 @@ body .content-wrapper .search-container input {
   box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
   margin: 39px 0 12px 15px;
   height: 48px;
-  width: 100%;
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #B4B4B4;
   line-height: 22px;
   padding-left: 16px;
-  max-width: 1057px;
+  width: 1040px;
 }
 body .content-wrapper .search-container input:focus {
   outline: none;
@@ -229,7 +233,7 @@ body .content-wrapper .search-container .results-tab {
 body .content-wrapper .search-container .results-tab.active {
   display: block;
 }
-body .content-wrapper .search-container .result-container {
+body .content-wrapper .search-container .results-tab .result-container {
   max-width: 1055px;
   background: #F0F0F0;
   border: 1px solid #808080;
@@ -241,21 +245,21 @@ body .content-wrapper .search-container .result-container {
   font-family: "Chakra Petch", sans-serif;
   padding-left: 16px;
 }
-body .content-wrapper .search-container .today-container {
+body .content-wrapper .today-container {
   margin-bottom: 64px;
 }
-body .content-wrapper .search-container .today-container .gif-grid {
+body .content-wrapper .today-container .gif-grid {
   display: grid;
   grid-template-columns: 288px 288px 288px 288px;
   grid-template-rows: 313px;
   column-gap: 16px;
 }
-body .content-wrapper .search-container .today-container .gif-grid .gif-container {
+body .content-wrapper .today-container .gif-grid .gif-container {
   background: #E6E6E6;
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   position: relative;
 }
-body .content-wrapper .search-container .today-container .gif-grid .gif-container .top-window {
+body .content-wrapper .today-container .gif-grid .gif-container .top-window {
   display: flex;
   right: 4px;
   left: 4px;
@@ -263,7 +267,7 @@ body .content-wrapper .search-container .today-container .gif-grid .gif-containe
   padding-right: 3px;
   justify-content: space-between;
 }
-body .content-wrapper .search-container .today-container .gif-grid .gif-container .see-more {
+body .content-wrapper .today-container .gif-grid .gif-container .see-more {
   position: absolute;
   bottom: 15px;
   left: 7px;
@@ -306,9 +310,19 @@ body.dark .navbar .buttons-wrapper .dropdown-menu {
   box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 }
 body.dark .navbar .buttons-wrapper .dropdown-menu button {
+  color: #110038;
   background: #CCCCCC;
   border: 1px solid #808080;
   box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+body.dark .navbar .buttons-wrapper .dropdown-menu button.selected {
+  background: #2E32FB;
+  border: 1px solid rgba(51, 53, 143, 0.2);
+  box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+  color: #FFFFFF;
+}
+body.dark .navbar .buttons-wrapper .dropdown-menu button.selected::first-letter {
+  border-bottom: 1px solid #FFFFFF;
 }
 body.dark .navbar .buttons-wrapper .my-gif {
   color: #FFFFFF;
