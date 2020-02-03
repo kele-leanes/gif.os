@@ -144,6 +144,11 @@ body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button {
 body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button::first-letter {
   border-bottom: 1px solid #110038;
 }
+body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu button.selected {
+  background: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
 body .navbar .buttons-wrapper .dropdown-wrapper .dropdown-menu img {
   display: block;
   margin: 14px auto;
@@ -185,13 +190,12 @@ body .content-wrapper .search-container input {
   box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
   margin: 39px 0 12px 15px;
   height: 48px;
-  width: 100%;
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #B4B4B4;
   line-height: 22px;
   padding-left: 16px;
-  max-width: 1057px;
+  width: 1040px;
 }
 body .content-wrapper .search-container input:focus {
   outline: none;
@@ -207,9 +211,13 @@ body .content-wrapper .search-container .search-button {
   color: #B4B4B4;
   line-height: 36px;
   margin-top: 45px;
-  text-align: center;
   margin-left: 8px;
   margin-right: 18px;
+  display: flex;
+  justify-content: center;
+}
+body .content-wrapper .search-container .search-button #search-icon {
+  margin-right: 9px;
 }
 body .content-wrapper .search-container .results-tab {
   width: 100%;

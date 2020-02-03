@@ -35,9 +35,19 @@ body.dark {
                 box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 
                 button {
+                    color: #110038;
                     background: #CCCCCC;
                     border: 1px solid #808080;
                     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                    &.selected {
+                        background: #2E32FB;
+                        border: 1px solid rgba(51,53,143,0.20);
+                        box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+                        color: #FFFFFF;
+                        &::first-letter {
+                            border-bottom: 1px solid #FFFFFF;
+                        }
+                    }
                 }
             }
             

@@ -19,9 +19,13 @@ function toggleTheme(){
         lightThemeBtn.disabled = false,darkThemeBtn.disabled = true;
         document.getElementsByClassName("logo-img")[0].src="/IMAGES/gifOF_logo_dark.png";
         document.getElementById("search-icon").src="/IMAGES/Combined shape.svg"
+        darkThemeBtn.classList.toggle("selected");
+        lightThemeBtn.classList.toggle("selected");
     }else {
         lightThemeBtn.disabled = true,darkThemeBtn.disabled = false;
         document.getElementsByClassName("logo-img")[0].src="/IMAGES/gifOF_logo.png";
         document.getElementById("search-icon").src="/IMAGES/lupa_inactive.svg"
+        darkThemeBtn.classList.toggle("selected");
+        lightThemeBtn.classList.toggle("selected");
     }
 }    
