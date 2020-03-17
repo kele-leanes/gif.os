@@ -59,6 +59,11 @@ body.dark {
                 &:hover {
                     border: 1px dotted #FFFFFF;
                 }
+                a {
+                    &:visited {
+                        color: #FFFFFF;
+                    }
+                }    
             }
         }
     }
@@ -76,7 +81,14 @@ body.dark {
                 background: #B4B4B4;
                 border: 1px solid #808080;
                 box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-                color: #8F8F8F;    
+                color: #8F8F8F;
+                &.active {
+                    cursor: pointer;
+                    color: #FFFFFF;
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                }    
             }
 
             .results-tab {
@@ -122,11 +134,95 @@ body.dark {
                 box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
     
             }
+            .gif-grid {
+                .gif-container {   
+                    .top-bar {
+                        background-image: styles.$dark-gradient;
+                    } 
+                }    
+            }    
         }
 
-    }
-    
-    
-    
+        .gif-creator {
+            background: #B4B4B4;
+            box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 
-}
+            .top-bar {
+                background-image: styles.$dark-gradient;
+            }
+
+            .btn-wrapper {
+                .action-btn {
+                    color: #FFFFFF;
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                    &:first-child {
+                        color: #FFFFFF;
+                        background: #110038;
+                        border: 1px solid #B4B4B4;
+                        box-shadow: inset -1px -1px 0 0 #5C5C5C, inset 1px 1px 0 0 #FFF4FD;
+                    }
+                }
+            }
+
+            .btn-wrapper-capture {
+                .capture-btn {
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                    &.recording {
+                        background: #FF6161;
+                    }
+                }
+                .camera-btn {
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                    &.recording {
+                        background: #FF6161;
+                    }
+                }
+            }
+
+            .button-wrapper {
+                .upload-btn {
+                    color: #FFFFFF;
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                    &:first-child {
+                        color: #FFFFFF;
+                        background: #110038;
+                        border: 1px solid #B4B4B4;
+                        box-shadow: inset -1px -1px 0 0 #5C5C5C, inset 1px 1px 0 0 #FFF4FD;
+                    }
+
+                }
+                .cancel-btn {
+                    color: #FFFFFF;
+                    background: #110038;
+                    border: 1px solid #B4B4B4;
+                    box-shadow: inset -1px -1px 0 0 #5C5C5C, inset 1px 1px 0 0 #FFF4FD;
+                }
+                .done-btn {
+                    color: #FFFFFF;
+                    background: #EE3EFE;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                }
+            }
+            .final-container {
+                .final-btn {
+                    color: #FFFFFF;
+                    background: #110038;
+                    border: 1px solid #110038;
+                    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+                } 
+                    
+            }
+        }
+    }
+
+        
+}    

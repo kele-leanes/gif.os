@@ -7,17 +7,17 @@
     <title>gif.OS</title>
     <link rel="stylesheet" href="/Build/styles.css">
     <link rel="stylesheet" href="/Build/styles-dark.css">
-    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,400i,700,700i&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="top-title">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</div>
+        <div class="top-title"></div>
         <div class="navbar">
-            <div class="logo">
+            <a href="./index.html" class="logo">
                 <img class="logo-img" src="/IMAGES/gifOF_logo.png" alt="Logo">
-            </div>
+            </a>
             <div class="buttons-wrapper">
-                <button class="nav-button">Crear Guifos</button>
+                <div class="nav-button"><a href="./mygifs.html">Crear Guifos</a></div>
                 <div class="dropdown-wrapper">
                     <button class="nav-button">Elegir tema</button>
                     <div class="dropdown-btn"><img src="/IMAGES/dropdown.svg"></div>
@@ -26,7 +26,7 @@
                     <button class="dark-theme-btn">Sailor Night</button>
                 </div>
                 </div>
-                <span class="my-gif">Mis Guifos</span>
+                <span class="my-gif"><a href="./mygifs.html">Mis Guifos</a></span>
             </div>
         </div>
     </header>        
@@ -36,28 +36,24 @@
             <input type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
             <div class="search-button"><img id="search-icon" src="/IMAGES/lupa_inactive.svg" alt=""> Buscar</div>
             <div class="results-tab">
-                <div class="result-container">Resultado</div>
-                <div class="result-container">Resultado</div>
-                <div class="result-container">Resultado</div>
+                <span>Sugerencias:</span>
+                <div class="result-container"></div>
+                <div class="result-container"></div>
+                <div class="result-container"></div>
             </div>    
         </div>
         <div class="today-container">
             <div class="title">Hoy te sugerimos:</div>
             <div class="gif-grid">
-                    <div class="gif-container"><div class="top-window">#Hashtag <img src="/IMAGES/button close.svg"></div><button class="see-more">Ver más...</button></div>
-                    <div class="gif-container"><div class="top-window">#Hashtag <img src="/IMAGES/button close.svg"></div><button class="see-more">Ver más...</button></div>
-                    <div class="gif-container"><div class="top-window">#Hashtag <img src="/IMAGES/button close.svg"></div><button class="see-more">Ver más...</button></div>
-                    <div class="gif-container"><div class="top-window">#Hashtag <img src="/IMAGES/button close.svg"></div><button class="see-more">Ver más...</button></div>
+                    <div class="gif-container"><img class="random" src="" alt=""><div class="top-window">#Hashtag</div><img class="close-icon" src="/IMAGES/button close.svg"><a class="see-more" href="" target="_blank">Ver más...</a></div>
+                    <div class="gif-container"><img class="random" src="" alt=""><div class="top-window">#Hashtag</div><img class="close-icon" src="/IMAGES/button close.svg"><a class="see-more" href="" target="_blank">Ver más...</a></div>
+                    <div class="gif-container"><img class="random" src="" alt=""><div class="top-window">#Hashtag</div><img class="close-icon" src="/IMAGES/button close.svg"><a class="see-more" href="" target="_blank">Ver más...</a></div>
+                    <div class="gif-container"><img class="random" src="" alt=""><div class="top-window">#Hashtag</div><img class="close-icon" src="/IMAGES/button close.svg"><a class="see-more" href="" target="_blank">Ver más...</a></div>
             </div>    
         </div>
         <div class="trending-container">
             <div class="title">Tendencias:</div>
-            <div class="gif-grid">
-                <div class="gif-trending"></div>
-                <div class="gif-trending"></div>
-                <div class="gif-trending"></div>
-                <div class="gif-trending"></div>
-            </div> 
+            <div class="gif-grid"></div> 
         </div>
     </div>
     <script src="main.js"></script>
