@@ -192,9 +192,8 @@ body .navbar .buttons-wrapper .my-gif a:visited {
   color: #110038;
 }
 body .content-wrapper {
-  max-width: 1200px;
-  margin-left: 100px;
-  margin-right: 100px;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 body .content-wrapper .search-container {
   position: relative;
@@ -291,12 +290,13 @@ body .content-wrapper .today-container {
   margin-bottom: 64px;
 }
 body .content-wrapper .today-container .gif-grid {
-  display: grid;
-  grid-template-columns: 288px 288px 288px 288px;
-  grid-template-rows: 313px;
-  column-gap: 16px;
+  display: flex !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 body .content-wrapper .today-container .gif-grid .gif-container {
+  width: 288px;
+  height: 313px;
   background: #E6E6E6;
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   position: relative;
@@ -346,6 +346,7 @@ body .content-wrapper .today-container .gif-grid .gif-container .close-icon {
   z-index: 99;
   top: 8px;
   right: 8px;
+  cursor: pointer;
 }
 body .content-wrapper .trending-container .gif-grid {
   display: flex;
@@ -354,14 +355,15 @@ body .content-wrapper .trending-container .gif-grid {
 }
 body .content-wrapper .trending-container .gif-grid .gif-container {
   position: relative;
+  width: 288px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container .gif-trending {
+body .content-wrapper .trending-container .gif-grid .gif-container img {
   background: #E6E6E6;
   margin-bottom: 16px;
   height: 298px;
-  width: 288px;
+  width: 100% !important;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container .gif-trending:hover {
+body .content-wrapper .trending-container .gif-grid .gif-container img:hover {
   outline: 1px dotted #110038;
   outline-offset: -4px;
 }
@@ -370,9 +372,6 @@ body .content-wrapper .trending-container .gif-grid .gif-container .top-bar {
   top: 274px;
   right: 0;
   left: 0;
-}
-body .content-wrapper .trending-container .gif-grid .gif-container .top-bar:hover {
-  display: block;
 }
 body .content-wrapper .gif-creator {
   background: #E6E6E6;

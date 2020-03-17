@@ -17,6 +17,8 @@ let darkThemeBtn = document.querySelector(".dark-theme-btn");
 
 themeButtons.addEventListener("click", toggleTheme);
 
+window.addEventListener("click", () => document.querySelector(".results-tab").classList.remove("active"))
+
 if(sessionStorage.getItem("theme") == "dark") {
     toggleTheme();
 }
@@ -41,9 +43,28 @@ function toggleTheme(){
         sessionStorage.setItem("theme", "light");
           
     }
-}    
+} 
+
+/* Close Icon Function*/
+
+let closeIcon = document.querySelectorAll(".close-icon");
+
+
+
+function getDataBtn() {
+    let btnNum = event.target.getAttribute("data-num");
+    document.querySelector(".gif-grid").removeChild(document.querySelectorAll(".gif-container")[btnNum])
+    let gifContainer = document.createElement("div");
+    gifContainer.setAttribute("class","gif-container");
+    document.querySelector(".gif-grid").appendChild(gifContainer)
+    document.querySelectorAll(".gif-container").forEach((element, index) => element.dataset.num = index);
+    document.querySelectorAll(".close-icon").forEach((element, index) => element.dataset.num = index);
+    getRandom(3);
+
+}
 
 const API_KEY = "I1D4SI355OrWqfIoGxwMcoUw4V85v2Rt"
+let counter = 100;
 
 async function getRandom(n) {
     const found =  await fetch('http://api.giphy.com/v1/gifs/random' + '?api_key=' + API_KEY)
@@ -52,10 +73,17 @@ async function getRandom(n) {
         })
         .then(data => {
             let results = data.data;
-            document.querySelectorAll(".random")[n].src=results.images.downsized.url;
-            document.querySelectorAll(".top-window")[n].innerHTML="#"+results.title;
-            document.querySelectorAll(".see-more")[n].href=results.url;
-        })
+            document.querySelectorAll(".gif-container")[n].dataset.num = n;
+            document.querySelectorAll(".gif-container")[n].innerHTML = 
+            `<img class="random" src="${results.images.downsized.url}" alt="">
+            <div class="top-window">#${results.title}</div>
+            <img class="close-icon" src="/IMAGES/button close.svg">
+            <a class="see-more" href="${results.url}" target="_blank">Ver más...</a>`
+            document.querySelectorAll(".close-icon")[n].dataset.num = n;
+            document.querySelectorAll(".close-icon")[n].addEventListener("click", getDataBtn);
+
+            
+        })  
         .catch(error => {
             return error;
         });
@@ -68,19 +96,24 @@ getRandom(2);
 getRandom(3);
 
 async function getTrendingResults() {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY)
+    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=' + counter)
         .then(response => {
             return response.json();
         })
         .then(data => {
             let results = data.data;
-            for(let i = 0; i<results.length;i++){
+            for(let i = 0; i<25;i++){
                 document.querySelectorAll(".gif-grid")[1].innerHTML += 
-                `<div class="gif-container">
+                `<div class="gif-container"${sizeCheck()}>
                     <img class="gif-trending" src="${results[i].images.downsized.url}">
                     <div class="top-bar">${results[i].title}</div>
                 </div>`;
-            }            
+                function sizeCheck() {
+                    if(results[i].images.downsized.width > 500 && i%2 == 0) {
+                        return `style="width:596px"`;
+                    }
+                }
+            }           
         })
         .catch(error => {
             return error;
@@ -93,10 +126,8 @@ setSearchSuggestion ();
 
 document.getElementsByTagName("input")[0].addEventListener("input", searchGif);
 
-/*document.querySelector(".search-container").addEventListener("blur", blurFunction);*/
-
 async function getSearchResults(search) {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + API_KEY)
+    const found =  await fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + API_KEY + '&limit=' + counter)
         .then(response => {
             return response.json();
         })
@@ -174,3 +205,89 @@ restCont.forEach((element)=>element.addEventListener("click", ()=>{
 
 }))  
 
+
+
+// Infinit Scroll function
+
+
+/*window.onscroll = function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        getTrendingResults();
+    }
+};*/ 
+
+// Contador de visitas
+
+function getexpirydate( nodays){
+
+    var UTCstring;
+    
+    Today = new Date();
+    
+    nomilli=Date.parse(Today);
+    
+    Today.setTime(nomilli+nodays*24*60*60*1000);
+    
+    UTCstring = Today.toUTCString();
+    
+    return UTCstring;
+    
+    }
+    
+    function getcookie(cookiename) {
+    
+    var cookiestring=""+document.cookie;
+    
+    var index1=cookiestring.indexOf(cookiename);
+    
+    if (index1==-1 || cookiename=="") return "";
+    
+    var index2=cookiestring.indexOf(";",index1);
+    
+    if (index2==-1) index2=cookiestring.length;
+    
+    return unescape(cookiestring.substring(index1+cookiename.length+1,index2));
+    
+    }
+    
+    function setcookie(name,value,duration){
+    
+    cookiestring=name+"="+escape(value)+";EXPIRES="+getexpirydate(duration);
+    
+    document.cookie=cookiestring;
+    
+    if(!getcookie(name)){
+    
+    return false;
+    
+    }
+    
+    else{
+    
+    return true;
+    
+    }
+    
+    }
+    
+    count= getcookie("counter");
+    
+    if(isNaN(count)){
+    
+    y=setcookie("counter",0,1);
+    
+    count=0;
+    
+    }
+    
+    count++;
+    
+
+    document.querySelector(".top-title").innerHTML = `¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: ${count} `
+    
+    y=setcookie("counter",count,1);
+    
+    // fin de obtencion de cookie
+   
+    
+    

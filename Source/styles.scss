@@ -219,9 +219,8 @@ body {
     }
 
     .content-wrapper {
-        max-width: 1200px;
-        margin-left: 100px;
-        margin-right: 100px;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
 
         .search-container {
             position: relative;
@@ -339,12 +338,13 @@ body {
             }
 
             .gif-grid {
-                display: grid;
-                grid-template-columns: 288px 288px 288px 288px;
-                grid-template-rows: 313px;
-                column-gap: 16px;
+                display: flex !important;
+                justify-content: space-between;
+                flex-wrap: wrap;
                 
                 .gif-container {
+                    width: 288px;
+                    height: 313px;
                     background: #E6E6E6;
                     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
                     position: relative;
@@ -397,6 +397,7 @@ body {
                         z-index: 99;
                         top: 8px;
                         right: 8px;
+                        cursor: pointer;
                     }
                 }
 
@@ -417,17 +418,16 @@ body {
 
                 .gif-container {
                     position: relative;
+                    width: 288px;
                     
-                    
-                    
-                    .gif-trending {
+                    img {
                         background: #E6E6E6;
                         margin-bottom: 16px;
                         height: 298px;
-                        width: 288px;
+                        width: 100% !important;
                         &:hover {
                             outline: 1px dotted #110038;
-                            outline-offset: -4px;       
+                            outline-offset: -4px;      
                         }
                                                       
                     }        
@@ -437,9 +437,6 @@ body {
                         top: 274px;
                         right: 0;
                         left: 0;
-                        &:hover {
-                            display: block;
-                        }
                     }    
 
 
@@ -684,7 +681,7 @@ body {
                 }
             }
         }
-
+         
     
     }
     
