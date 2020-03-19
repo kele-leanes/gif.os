@@ -64,7 +64,6 @@ function getDataBtn() {
 }
 
 const API_KEY = "I1D4SI355OrWqfIoGxwMcoUw4V85v2Rt"
-let counter = 100;
 
 async function getRandom(n) {
     const found =  await fetch('http://api.giphy.com/v1/gifs/random' + '?api_key=' + API_KEY)
