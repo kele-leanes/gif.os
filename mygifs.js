@@ -59,10 +59,6 @@ clock.setAttribute("class", "clock");
 
 buttonWrapper.addEventListener("click", startRecord);
 
-/*(() => {
-    fetch("http://api.giphy.com/v1/gifs?ids=Q9GDPr17tksiMZYGcl&random_id=87edd0275e66e31133434f566b49468b&api_key=I1D4SI355OrWqfIoGxwMcoUw4V85v2Rt").then((res) => res.json()).then((data) => console.log(data))
-})()*/
-
 function startRecord() {
     createButton.classList.add("recording");
     createCameraButton.classList.add("recording");

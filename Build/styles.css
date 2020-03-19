@@ -13,7 +13,7 @@ body .content-wrapper .trending-container .title, body .content-wrapper .today-c
   margin-bottom: 16px;
 }
 
-body .content-wrapper .gif-creator .top-bar, body .content-wrapper .trending-container .gif-grid .gif-container .top-bar, body .content-wrapper .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
+body .content-wrapper .gif-creator .top-bar, body .content-wrapper .trending-container .gif-grid .gif-trending .bottom-bar, body .content-wrapper .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
   position: absolute;
   top: 3px;
   left: 3px;
@@ -216,6 +216,7 @@ body .content-wrapper .search-container input {
   line-height: 22px;
   padding-left: 16px;
   width: 1040px;
+  cursor: text;
 }
 body .content-wrapper .search-container input:focus {
   outline: none;
@@ -242,6 +243,10 @@ body .content-wrapper .search-container .search-button.active {
   background: #F7C9F3;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+body .content-wrapper .search-container .search-button:active {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
 }
 body .content-wrapper .search-container .search-button #search-icon {
   margin-right: 9px;
@@ -353,25 +358,29 @@ body .content-wrapper .trending-container .gif-grid {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container {
+body .content-wrapper .trending-container .gif-grid .gif-trending {
   position: relative;
   width: 288px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container img {
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img {
   background: #E6E6E6;
   margin-bottom: 16px;
   height: 298px;
-  width: 100% !important;
+  width: 100%;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container img:hover {
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img:hover ~ .bottom-bar {
+  visibility: visible;
+}
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img:hover {
   outline: 1px dotted #110038;
   outline-offset: -4px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container .top-bar {
-  display: none;
+body .content-wrapper .trending-container .gif-grid .gif-trending .bottom-bar {
+  visibility: hidden;
   top: 274px;
   right: 0;
   left: 0;
+  overflow: hidden;
 }
 body .content-wrapper .gif-creator {
   background: #E6E6E6;

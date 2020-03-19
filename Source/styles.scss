@@ -248,6 +248,7 @@ body {
                 line-height: 22px;
                 padding-left: 16px;
                 width: 1040px;
+                cursor: text;
                 &:focus {
                     outline: none;
                     }
@@ -274,6 +275,10 @@ body {
                     background: #F7C9F3;
                     border: 1px solid #110038;
                     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+                }
+                &:active {
+                    outline: 1px dotted #110038;
+                    outline-offset: -3px;
                 }
                 
                 #search-icon {
@@ -416,27 +421,33 @@ body {
                 justify-content: space-between;
                 flex-wrap: wrap;
 
-                .gif-container {
+                .gif-trending {
                     position: relative;
                     width: 288px;
                     
-                    img {
+                    .gif-img {
                         background: #E6E6E6;
                         margin-bottom: 16px;
                         height: 298px;
-                        width: 100% !important;
+                        width: 100%;
+                        &:hover ~ .bottom-bar {
+                            visibility: visible;
+                        }
+                        
                         &:hover {
                             outline: 1px dotted #110038;
                             outline-offset: -4px;      
                         }
                                                       
                     }        
-                    .top-bar {
+                    .bottom-bar {
                         @extend %top-window;
-                        display: none;
+                        visibility: hidden;
                         top: 274px;
                         right: 0;
                         left: 0;
+                        overflow: hidden;
+                        
                     }    
 
 
@@ -633,7 +644,6 @@ body {
                         margin-bottom: 71px;
                         
                     }
-    
                     .subtitle {
                         font-family: $primary-font;
                         font-size: 12px;

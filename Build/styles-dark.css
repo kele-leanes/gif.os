@@ -13,7 +13,7 @@ body .content-wrapper .trending-container .title, body .content-wrapper .today-c
   margin-bottom: 16px;
 }
 
-body .content-wrapper .gif-creator .top-bar, body .content-wrapper .trending-container .gif-grid .gif-container .top-bar, body .content-wrapper .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
+body .content-wrapper .gif-creator .top-bar, body .content-wrapper .trending-container .gif-grid .gif-trending .bottom-bar, body .content-wrapper .today-container .gif-grid .gif-container .top-window, body .content-wrapper .search-container .top-bar {
   position: absolute;
   top: 3px;
   left: 3px;
@@ -53,6 +53,7 @@ button:focus {
 
 body {
   background-color: #FFF4FD;
+  margin: 0 auto;
 }
 body .top-title {
   height: 23px;
@@ -191,9 +192,8 @@ body .navbar .buttons-wrapper .my-gif a:visited {
   color: #110038;
 }
 body .content-wrapper {
-  max-width: 1200px;
-  margin-left: 100px;
-  margin-right: 100px;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 body .content-wrapper .search-container {
   position: relative;
@@ -216,6 +216,7 @@ body .content-wrapper .search-container input {
   line-height: 22px;
   padding-left: 16px;
   width: 1040px;
+  cursor: text;
 }
 body .content-wrapper .search-container input:focus {
   outline: none;
@@ -242,6 +243,10 @@ body .content-wrapper .search-container .search-button.active {
   background: #F7C9F3;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+body .content-wrapper .search-container .search-button:active {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
 }
 body .content-wrapper .search-container .search-button #search-icon {
   margin-right: 9px;
@@ -290,12 +295,13 @@ body .content-wrapper .today-container {
   margin-bottom: 64px;
 }
 body .content-wrapper .today-container .gif-grid {
-  display: grid;
-  grid-template-columns: 288px 288px 288px 288px;
-  grid-template-rows: 313px;
-  column-gap: 16px;
+  display: flex !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 body .content-wrapper .today-container .gif-grid .gif-container {
+  width: 288px;
+  height: 313px;
   background: #E6E6E6;
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   position: relative;
@@ -345,29 +351,36 @@ body .content-wrapper .today-container .gif-grid .gif-container .close-icon {
   z-index: 99;
   top: 8px;
   right: 8px;
+  cursor: pointer;
 }
 body .content-wrapper .trending-container .gif-grid {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container {
+body .content-wrapper .trending-container .gif-grid .gif-trending {
   position: relative;
-}
-body .content-wrapper .trending-container .gif-grid .gif-container .gif-trending {
-  margin-bottom: 16px;
-  height: 298px;
   width: 288px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container .gif-trending:hover {
+body .content-wrapper .trending-container .gif-grid .gif-trending img {
+  background: #E6E6E6;
+  margin-bottom: 16px;
+  height: 298px;
+  width: 100% !important;
+}
+body .content-wrapper .trending-container .gif-grid .gif-trending img:hover ~ .bottom-bar {
+  visibility: visible;
+}
+body .content-wrapper .trending-container .gif-grid .gif-trending img:hover {
   outline: 1px dotted #110038;
   outline-offset: -4px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-container .top-bar {
-  display: none;
+body .content-wrapper .trending-container .gif-grid .gif-trending .bottom-bar {
+  visibility: hidden;
   top: 274px;
   right: 0;
   left: 0;
+  overflow: hidden;
 }
 body .content-wrapper .gif-creator {
   background: #E6E6E6;
@@ -666,7 +679,7 @@ body.dark .content-wrapper .trending-container .title {
   border: 1px solid #2E32FB;
   box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
 }
-body.dark .content-wrapper .trending-container .gif-grid .gif-container .top-bar {
+body.dark .content-wrapper .trending-container .gif-grid .gif-trending .bottom-bar {
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
 body.dark .content-wrapper .gif-creator {

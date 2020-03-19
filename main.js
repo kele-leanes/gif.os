@@ -75,9 +75,9 @@ async function getRandom(n) {
             let results = data.data;
             document.querySelectorAll(".gif-container")[n].dataset.num = n;
             document.querySelectorAll(".gif-container")[n].innerHTML = 
-            `<img class="random" src="${results.images.downsized.url}" alt="">
+            `<img class="random" src="${results.images.downsized.url}">
             <div class="top-window">#${results.title}</div>
-            <img class="close-icon" src="/IMAGES/button close.svg">
+            <img class="close-icon" src="/IMAGES/button_close.svg">
             <a class="see-more" href="${results.url}" target="_blank">Ver más...</a>`
             document.querySelectorAll(".close-icon")[n].dataset.num = n;
             document.querySelectorAll(".close-icon")[n].addEventListener("click", getDataBtn);
@@ -96,17 +96,17 @@ getRandom(2);
 getRandom(3);
 
 async function getTrendingResults() {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=' + counter)
+    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=15')
         .then(response => {
             return response.json();
         })
         .then(data => {
             let results = data.data;
-            for(let i = 0; i<25;i++){
+            for(let i = 0; i<15;i++){
                 document.querySelectorAll(".gif-grid")[1].innerHTML += 
-                `<div class="gif-container"${sizeCheck()}>
-                    <img class="gif-trending" src="${results[i].images.downsized.url}">
-                    <div class="top-bar">${results[i].title}</div>
+                `<div class="gif-trending"${sizeCheck()}>
+                    <a href="${results[i].url}" target="_blank"><img class="gif-img" src="${results[i].images.downsized.url}"></a>
+                    <div class="bottom-bar">${results[i].title}</div>
                 </div>`;
                 function sizeCheck() {
                     if(results[i].images.downsized.width > 500 && i%2 == 0) {
@@ -134,7 +134,7 @@ async function getSearchResults(search) {
         .then(data => {
             let results = data.data;
             for(let i = 0; i<results.length;i++){
-                document.querySelectorAll(".gif-trending")[i].src=results[i].images.downsized.url;
+                document.querySelectorAll(".gif-img")[i].src=results[i].images.downsized.url;
             }
         })
         .catch(error => {
@@ -164,7 +164,7 @@ function doSearch(){
     if(document.getElementsByTagName("input")[0].value == false) {
         alert("El campo de busqueda está vacio")
     }else {
-        let eraseGif = document.querySelectorAll(".gif-trending");
+        let eraseGif = document.querySelectorAll(".gif-img");
         eraseGif.forEach((Element)=>Element.src="")   
         getSearchResults(document.getElementsByTagName("input")[0].value);
         document.getElementsByClassName("today-container")[0].style.display = "none";
@@ -209,12 +209,41 @@ restCont.forEach((element)=>element.addEventListener("click", ()=>{
 
 // Infinit Scroll function
 
+let i = 15;
 
-/*window.onscroll = function() {
+async function getMoreTrending() {
+    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=60')
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            let results = data.data; 
+            for(i;i<(i+15);i++){
+                console.log(i)
+                document.querySelectorAll(".gif-grid")[1].innerHTML += 
+                `<div class="gif-trending"${sizeCheck()}>
+                    <a href="${results[i].url}" target="_blank"><img class="gif-img" src="${results[i].images.downsized.url}"></a>
+                    <div class="bottom-bar">${results[i].title}</div>
+                </div>`;
+                function sizeCheck() {
+                    if(results[i].images.downsized.width > 500 && i%2 == 0) {
+                        return `style="width:596px"`;
+                    }
+                }
+            } return i = i+15;          
+        })
+        .catch(error => {
+            return error;
+        });
+    return found;    
+}
+
+
+window.onscroll = function() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        getTrendingResults();
+        getMoreTrending();
     }
-};*/ 
+};
 
 // Contador de visitas
 
