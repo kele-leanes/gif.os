@@ -222,7 +222,7 @@ function finalStep() {
             <img class="miniGif" src=""/>
             <span class="title">Guifo creado con éxito</span>
             <button class="final-btn">Copiar Enlace Guifo</button>
-            <button class="final-btn">Descargar Guifo</button>
+            <a href="${objectUrl}" download><button class="final-btn">Descargar Guifo</button></a>
         </div>     
     <div class="button-wrapper">
     <button class="done-btn">Listo</button>
@@ -231,6 +231,16 @@ function finalStep() {
     document.querySelector(".gif-grid").innerHTML=""
     getGifFromLocal();
     document.querySelector(".done-btn").addEventListener("click", ()=> gifCreator.style.display="none");
+    document.querySelector(".final-btn").addEventListener("click", ()=> { 
+        var aux = document.createElement("input");
+        aux.setAttribute("value",lastGifApi.url);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+        alert("Su enlance fue copiado al portapapeles")
+    })
+
 }
 
 function getGifFromLocal() {

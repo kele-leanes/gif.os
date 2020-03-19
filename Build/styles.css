@@ -573,6 +573,7 @@ body .content-wrapper .gif-creator .final-container .final-btn {
   width: 256px;
   background-color: #FFF4FD;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
