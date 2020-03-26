@@ -57,7 +57,6 @@ body {
 }
 body .top-title {
   height: 23px;
-  width: 100%;
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
   box-shadow: 0 1px 0 0 #110038;
   margin-bottom: 35px;
@@ -68,8 +67,7 @@ body .top-title {
   padding-left: 8px;
 }
 body .navbar {
-  margin-left: 91px;
-  margin-right: 91px;
+  margin: 0 auto;
   max-width: 1208.5px;
   display: flex;
   justify-content: space-between;
@@ -362,16 +360,16 @@ body .content-wrapper .trending-container .gif-grid .gif-trending {
   position: relative;
   width: 288px;
 }
-body .content-wrapper .trending-container .gif-grid .gif-trending img {
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img {
   background: #E6E6E6;
   margin-bottom: 16px;
   height: 298px;
-  width: 100% !important;
+  width: 100%;
 }
-body .content-wrapper .trending-container .gif-grid .gif-trending img:hover ~ .bottom-bar {
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img:hover ~ .bottom-bar {
   visibility: visible;
 }
-body .content-wrapper .trending-container .gif-grid .gif-trending img:hover {
+body .content-wrapper .trending-container .gif-grid .gif-trending .gif-img:hover {
   outline: 1px dotted #110038;
   outline-offset: -4px;
 }
@@ -573,6 +571,7 @@ body .content-wrapper .gif-creator .final-container .final-btn {
   width: 256px;
   background-color: #FFF4FD;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 body.dark {

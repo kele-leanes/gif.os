@@ -94,46 +94,61 @@ getRandom(1);
 getRandom(2);
 getRandom(3);
 
-async function getTrendingResults() {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=15')
+var cont = 30;
+
+var it = 0;
+
+async function getTrendingResults(cont, it) {
+    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=' + cont )
         .then(response => {
             return response.json();
         })
         .then(data => {
             let results = data.data;
-            for(let i = 0; i<15;i++){
+            for(it; it<cont;it++){
                 document.querySelectorAll(".gif-grid")[1].innerHTML += 
-                `<div class="gif-trending"${sizeCheck()}>
-                    <a href="${results[i].url}" target="_blank"><img class="gif-img" src="${results[i].images.downsized.url}"></a>
-                    <div class="bottom-bar">${results[i].title}</div>
-                </div>`;
+                `<a href="${results[it].url}" target="_blank"><div class="gif-trending"${sizeCheck()}>
+                    <img class="gif-img" src="${results[it].images.downsized.url}">
+                    <div class="bottom-bar">${results[it].title}</div>
+                </div></a>`;
                 function sizeCheck() {
-                    if(results[i].images.downsized.width > 500 && i%2 == 0) {
+                    if(results[it].images.downsized.width > 500 && it%2 == 0) {
                         return `style="width:596px"`;
                     }
-                }
-            }           
-        })
+                }   
+            }    
+        }) 
         .catch(error => {
             return error;
         });
-    return found;    
+    return found;
+        
 }
 
-getTrendingResults();
+
+getTrendingResults(cont, it);
 setSearchSuggestion ();
 
 document.getElementsByTagName("input")[0].addEventListener("input", searchGif);
 
 async function getSearchResults(search) {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + API_KEY + '&limit=' + counter)
+    const found =  await fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + API_KEY + '&limit=80')
         .then(response => {
             return response.json();
         })
         .then(data => {
             let results = data.data;
             for(let i = 0; i<results.length;i++){
-                document.querySelectorAll(".gif-img")[i].src=results[i].images.downsized.url;
+                document.querySelectorAll(".gif-grid")[1].innerHTML += 
+                `<a href="${results[i].url}" target="_blank"><div class="gif-trending"${sizeCheck()}>
+                    <img class="gif-img" src="${results[i].images.downsized.url}">
+                    <div class="bottom-bar">${results[i].title}</div>
+                </div></a>`;
+                function sizeCheck() {
+                    if(results[i].images.downsized.width > 500 && i%2 == 0) {
+                        return `style="width:596px"`;
+                    }
+                }    
             }
         })
         .catch(error => {
@@ -163,8 +178,9 @@ function doSearch(){
     if(document.getElementsByTagName("input")[0].value == false) {
         alert("El campo de busqueda está vacio")
     }else {
-        let eraseGif = document.querySelectorAll(".gif-img");
-        eraseGif.forEach((Element)=>Element.src="")   
+        /*let eraseGif = document.querySelectorAll(".gif-img");
+        eraseGif.forEach((Element)=>Element.src="")*/ 
+        document.querySelectorAll(".gif-grid")[1].innerHTML = "";  
         getSearchResults(document.getElementsByTagName("input")[0].value);
         document.getElementsByClassName("today-container")[0].style.display = "none";
         document.getElementsByClassName("title")[1].innerHTML = "Resultados: "+document.getElementsByTagName("input")[0].value;
@@ -208,39 +224,10 @@ restCont.forEach((element)=>element.addEventListener("click", ()=>{
 
 // Infinit Scroll function
 
-let i = 15;
-
-async function getMoreTrending() {
-    const found =  await fetch('http://api.giphy.com/v1/gifs/trending' + '?api_key=' + API_KEY + '&limit=60')
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            let results = data.data; 
-            for(i;i<(i+15);i++){
-                console.log(i)
-                document.querySelectorAll(".gif-grid")[1].innerHTML += 
-                `<div class="gif-trending"${sizeCheck()}>
-                    <a href="${results[i].url}" target="_blank"><img class="gif-img" src="${results[i].images.downsized.url}"></a>
-                    <div class="bottom-bar">${results[i].title}</div>
-                </div>`;
-                function sizeCheck() {
-                    if(results[i].images.downsized.width > 500 && i%2 == 0) {
-                        return `style="width:596px"`;
-                    }
-                }
-            } return i = i+15;          
-        })
-        .catch(error => {
-            return error;
-        });
-    return found;    
-}
-
-
 window.onscroll = function() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        getMoreTrending();
+        cont += 30, it += 30;   
+        getTrendingResults(cont, it);
     }
 };
 
