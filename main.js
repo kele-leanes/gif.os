@@ -76,7 +76,7 @@ async function getRandom(n) {
             document.querySelectorAll(".gif-container")[n].innerHTML = 
             `<img class="random" src="${results.images.downsized.url}">
             <div class="top-window">#${results.title}</div>
-            <img class="close-icon" src="/IMAGES/button_close.svg">
+            <img class="close-icon" src="./IMAGES/button_close.svg">
             <a class="see-more" href="${results.url}" target="_blank">Ver más...</a>`
             document.querySelectorAll(".close-icon")[n].dataset.num = n;
             document.querySelectorAll(".close-icon")[n].addEventListener("click", getDataBtn);
@@ -161,9 +161,9 @@ function searchGif(){
     document.getElementsByClassName("search-button")[0].classList.add("active");
     document.getElementsByClassName("results-tab")[0].classList.add("active");
         if(lightThemeBtn.disabled == true){
-            searchIcon.src="/IMAGES/lupa.svg"
+            searchIcon.src="./IMAGES/lupa.svg"
         }else{
-            searchIcon.src="/IMAGES/lupa_light.svg"
+            searchIcon.src="./IMAGES/lupa_light.svg"
         }  
     document.getElementsByClassName("search-button")[0].addEventListener("click", doSearch);
     document.getElementsByTagName("input")[0].addEventListener("keyup", ()=>{

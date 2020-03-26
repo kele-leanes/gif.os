@@ -26,14 +26,14 @@ function toggleTheme(){
     
     if(lightThemeBtn.disabled == true){
         lightThemeBtn.disabled = false,darkThemeBtn.disabled = true;
-        document.getElementsByClassName("logo-img")[0].src="/IMAGES/gifOF_logo_dark.png";
+        document.getElementsByClassName("logo-img")[0].src="./IMAGES/gifOF_logo_dark.png";
         darkThemeBtn.classList.toggle("selected");
         lightThemeBtn.classList.toggle("selected");
         sessionStorage.setItem("theme", "dark");         
         
     }else {
         lightThemeBtn.disabled = true,darkThemeBtn.disabled = false;
-        document.getElementsByClassName("logo-img")[0].src="/IMAGES/gifOF_logo.png";
+        document.getElementsByClassName("logo-img")[0].src="./IMAGES/gifOF_logo.png";
         darkThemeBtn.classList.toggle("selected");
         lightThemeBtn.classList.toggle("selected");
         sessionStorage.setItem("theme", "light");
@@ -52,7 +52,7 @@ createButton.setAttribute("class", "capture-btn");
 let createCameraButton = document.createElement("div");
 createCameraButton.setAttribute("class", "camera-btn");
 let cameraIcon = document.createElement("img");
-cameraIcon.src = "/IMAGES/camera.svg";
+cameraIcon.src = "./IMAGES/camera.svg";
 createButton.innerText="Capturar";
 let clock = document.createElement("div");
 clock.setAttribute("class", "clock");
@@ -62,7 +62,7 @@ buttonWrapper.addEventListener("click", startRecord);
 function startRecord() {
     createButton.classList.add("recording");
     createCameraButton.classList.add("recording");
-    cameraIcon.src = "/IMAGES/recording.svg";
+    cameraIcon.src = "./IMAGES/recording.svg";
     createButton.innerText = "Listo";
     document.querySelector(".top-bar").innerHTML="Capturando Tu Guifo";
     gifCreator.appendChild(clock);
@@ -139,7 +139,7 @@ function loadingGif() {
     `<div class="top-bar">Subiendo Guifo</div>
     <div class="white-background">
         <div class="title-container">
-            <img src="/IMAGES/globe_img.png"/>
+            <img src="./IMAGES/globe_img.png"/>
             <span class="title">Estamos subiendo tu guifo</span>
             <span class="subtitle">Tiempo restante: <del>38 años</del> algunos minutos</span>
         </div>     
